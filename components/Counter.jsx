@@ -1,8 +1,12 @@
 import { useState } from "react";
-import { Button, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { MMKVLoader, useMMKVStorage } from 'react-native-mmkv-storage';
 
+const storage = new MMKVLoader().initialize();
 function Counter() {
-	let [counter, setCounter] = useState(0);
+	// useMMKVStorage is like a React Hook, except that the persisted state is written in storage
+	// at every change
+	const [counter, setCounter] = useMMKVStorage('counter', storage, 0);
 
 	function handleIncrease() {
 		setCounter(counter + 1);
