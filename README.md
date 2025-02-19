@@ -1,1 +1,2 @@
-### Simple counter with persistent state value ###
+### Simple counter ###
+Persistent state value counter app.
